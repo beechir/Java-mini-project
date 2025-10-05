@@ -7,14 +7,15 @@ public class ZooMangement {
     public ZooMangement(int nbrCages, String zooName) {}
 
     public int getNbrCages(){
-        return nbrCages;
+
+        return this.nbrCages;
     }
     public void setNbrCages(int nbrCages){
         this.nbrCages = nbrCages;
     }
 
     public String getzooName (){
-        return zooName;
+        return this.zooName;
     }
 
     public void setzooName(String zooName){
