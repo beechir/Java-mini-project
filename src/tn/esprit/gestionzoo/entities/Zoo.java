@@ -9,7 +9,12 @@ public class Zoo {
     }
 
     Zoo(String name,String city,int nbrCages){
-        this.name=name;
+        if (name==null){
+            System.out.println("name supposed to be not null");
+        }
+        else {
+            this.name = name;
+        }
         this.city=city;
         this.nbrCages=nbrCages;
     }
@@ -59,11 +64,16 @@ public class Zoo {
 
     public boolean add_animal(Animal animal){
         //ajouter an animale dans le tableau animales dans la fin the table
+       if(isZooFull()){
+            System.out.println("Zoo is full");
+        }
+       else {
         for (int i = 0; i < this.animals.length; i++) {
             if (this.animals[i] == null) {
                 this.animals[i] = animal;
                 return true;
             }
+        }
         }
         return false;
 
@@ -110,4 +120,12 @@ public class Zoo {
         }
         return zoo2;
         }
+    public boolean isZooFull(){
+        for (int i = 0; i < this.animals.length; i++){
+            if (this.animals[i] == null) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
