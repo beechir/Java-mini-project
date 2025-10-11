@@ -57,4 +57,57 @@ public class Zoo {
                 '}';
     }
 
+    public boolean add_animal(Animal animal){
+        //ajouter an animale dans le tableau animales dans la fin the table
+        for (int i = 0; i < this.animals.length; i++) {
+            if (this.animals[i] == null) {
+                this.animals[i] = animal;
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public void showAllAnimals(){
+        for (int i = 0; i < this.animals.length; i++) {
+            if (this.animals[i] != null) {
+                System.out.println(this.animals[i].toString());
+            } else {
+                System.out.println("null");
+            }
+        }
+    }
+    public int searchAnimal(Animal animal){
+        for (int i = 0; i < this.animals.length; i++) {
+            if (this.animals[i].getname() == animal.getname()){
+                return i;
+            }
+
+        }
+        return -1;
+
+        }
+
+    public void removeAnimal(Animal animal){
+        int x = this.animals.length;
+        int i = searchAnimal(animal);
+        this.animals[i]=null;
+    }
+
+    public Zoo comarerZoo(Zoo zoo1 , Zoo zoo2){
+        int z1NbrAnimals = 0,  z2NbrAnimals =0;
+        for (int i = 0; i < this.animals.length; i++) {
+            if (zoo1.animals[i] != null) {
+                z1NbrAnimals ++;
+            }
+            if (zoo2.animals[i] != null) {
+                z2NbrAnimals ++;
+            }
+        }
+        if (z1NbrAnimals > z2NbrAnimals){
+            return zoo1;
+        }
+        return zoo2;
+        }
 }
